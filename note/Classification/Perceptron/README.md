@@ -3,7 +3,7 @@
 実際の神経細胞におけるニューロンの発火/未発火を再現したモデル。概念的には二分類タスクとして捉えられる。
 
 入力値 $\boldsymbol{x}$ と重み $\boldsymbol{w}$ から得られる
-総入力値$z$に対し、
+総入力値 $z$ に対し、
 
 $$
 \Phi(z)=
@@ -23,7 +23,10 @@ z=w_0 x_0+w_1 x_1+\cdots+w_m x_m =
 w_0 \\ w_1\\\vdots\\ w_m
 \end{bmatrix}^T
 \begin{bmatrix}
-x_0\\x_1\\\vdots\\ x_m
+x_0 \\
+ x_1\\
+ \vdots
+ \\ x_m
 \end{bmatrix}=
 \boldsymbol{w}^T\boldsymbol{x}
 $$
