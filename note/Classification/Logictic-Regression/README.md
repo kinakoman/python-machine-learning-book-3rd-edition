@@ -43,15 +43,26 @@ $$
 <img src='03_03.png' style="width:50%">
 
 特徴量$x$が重み$w$でパラメータ化されるとすれば、シグモイド関数の出力は、データ点がクラス1に所属している
-確率$\Phi(z)=P(y=1|\boldsymbol{x};\boldsymbol{w})$と解釈する。
+確率 $\Phi(z)=P(y=1|\boldsymbol{x};\boldsymbol{w})$ と解釈する。
 
 閾値関数を利用して確率を二値の成果指標に変換すると、
 
-$$\hat{y}=\begin{cases}1\qquad\Phi(z)\geq0.5\\0\qquad\Phi(z)\leq0.5\end{cases}$$
+$$
+\hat{y}=
+\begin{cases}
+1\qquad\Phi(z)\geq0.5\\
+0\qquad\Phi(z)\leq0.5\end{cases}
+$$
 
 これを上で示したシグモイド関数について$z$軸基準で考えると、
 
-$$\hat{y}=\begin{cases}1\qquad z\geq0\\0\qquad z\leq0\end{cases}$$
+$$
+\hat{y}=
+\begin{cases}
+1\qquad z\geq0\\
+0\qquad z\leq0
+\end{cases}
+$$
 
 # ロジスティック関数の重み学習
 
@@ -64,7 +75,6 @@ $$J(\boldsymbol{w})=\sum_i\dfrac{1}{2}(\Phi(z^{(i)})-y^{(i)})^2$$
 
 $$L(\boldsymbol{w})=P(y=1|\boldsymbol{x};\boldsymbol{w})=\prod_{i=1}^{n}P(y^{(i)}|x^{(i)};\boldsymbol{w})
 =\prod_{i=1}^n(\Phi(z^{(i)}))^{y^{(i)}}(1-\Phi(z))^{1-y^{(i)}}
-
 $$
 
 これの対数を取ったものを**対数尤度(log-likelihood)**と呼び以下の通りに示される。
