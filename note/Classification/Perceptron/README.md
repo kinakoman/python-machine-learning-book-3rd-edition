@@ -20,7 +20,7 @@ $$
 $$
 z=w_0 x_0+w_1 x_1+\cdots+w_m x_m =
 \begin{bmatrix}
-w_0\\w_1\\\vdots\\ w_m
+w_0 \\ w_1\\\vdots\\ w_m
 \end{bmatrix}^T
 \begin{bmatrix}
 x_0\\x_1\\\vdots\\ x_m
@@ -61,7 +61,7 @@ $$
 \Delta w_j=\eta(y^{(i)}-\hat{y}^{(i)})x_j
 $$
 
-$\eta$ は学習率と呼ばれ通常0から1の値を取る整数となる。$\hat{y}^{(i)}$は予測されるクラスラベルである。
+$\eta$ は学習率と呼ばれ通常0から1の値を取る整数となる。 $\hat{y}^{(i)}$ は予測されるクラスラベルである。
 
 重みベクトルの更新は全て同時に行われる。
 
