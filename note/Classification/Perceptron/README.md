@@ -8,8 +8,8 @@
 $$
 \Phi(z)=
 \begin{cases}
-1\;\;(z\geq\theta)\\
--1\;\;(z<\theta)
+1\qquad(z\geq\theta)\\
+-1\qquad(z<\theta)
 \end{cases}
 $$
 
