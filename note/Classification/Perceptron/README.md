@@ -20,13 +20,16 @@ $$
 $$
 z=w_0 x_0+w_1 x_1+\cdots+w_m x_m =
 \begin{bmatrix}
-w_0 \\ w_1\\\vdots\\ w_m
+w_0\\
+w_1\\
+\vdots\\
+w_m
 \end{bmatrix}^T
 \begin{bmatrix}
 x_0 \\
- x_1\\
- \vdots
- \\ x_m
+x_1\\
+\vdots\\
+x_m
 \end{bmatrix}=
 \boldsymbol{w}^T\boldsymbol{x}
 $$
@@ -102,7 +105,7 @@ $$
 
 ADALINEの場合、学習家庭で最適化される目的関数(Objective Function)としてコスト関数(cost function)を定義する。
 
-ADALINEにおけるコスト関数$J$は誤差平方和(Sum of Squared Error)を用いて次のように示される。
+ADALINEにおけるコスト関数 $J$ は誤差平方和(Sum of Squared Error)を用いて次のように示される。
 
 $$
 J(\boldsymbol{w})=\dfrac{1}{2}\sum_i(y^{(i)}-\Phi(z^{(i)}))^2
