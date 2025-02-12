@@ -82,7 +82,7 @@ $$
 **対数尤度(log-likelihood)**
 と呼び以下の通りに示される。
 
-$$l(\boldsymbol{s})=\log L(\boldsymbol{w})=\sum_{i=1}^{n}[y^{(i)}\log(\Phi(z^{(i)}))+(1-y^{(i)})\log(1-\Phi(z^{(i)}))]$$
+$$l(\boldsymbol{w})=\log L(\boldsymbol{w})=\sum_{i=1}^{n}[y^{(i)}\log(\Phi(z^{(i)}))+(1-y^{(i)})\log(1-\Phi(z^{(i)}))]$$
 
 通常は勾配上昇法などを用いてこの尤度が最大化するように最適化を行う。勾配降下法を用いてコスト関数を最小化するため、
 尤度をコスト関数として書き直す。
@@ -109,3 +109,53 @@ $$
 
 ADALINE実装のアルゴリズムをロジスティック回帰アルゴリズムに変更するには、ADALINEのコスト関数を上のコスト関数に変更すればよい。
 さらに、線形活性化関数をシグモイド関数活性化関数に置き換え、閾値関数も-1,1ではなく0,1を返す。
+
+ここで、学習アルゴリズムの重み更新規則は、ロジスティック回帰とADALINEとで同等であることを示す。
+
+対数尤度関数を $j$番目の重みに関して偏微分する。
+
+$$
+\dfrac{\partial}{\partial w_j}l(\boldsymbol{w})=\left(y\dfrac{1}{\Phi(z)}-(1-y)\dfrac{1}{1-\Phi(z)}\right)\dfrac{\partial}{\partial w_j}\Phi(z)
+$$
+
+シグモイド関数の偏微分は
+
+$$
+\dfrac{\partial}{\partial z}\Phi(z)=\dfrac{\partial}{\partial z}\dfrac{1}{1+e^{-z}}=\Phi(z)(1-\Phi(z))
+$$
+
+式を組み合わせて書き換えると、
+
+$$
+\begin{split}
+\left(y\dfrac{1}{\Phi(z)}-(1-y)\dfrac{1}{1-\Phi(z)}\right)\dfrac{\partial}{\partial w_j}\Phi(z)
+&=\left(y\dfrac{1}{\Phi(z)}-(1-y)\dfrac{1}{1-\Phi(z)}\right)\Phi(z)(1-\Phi(z))\dfrac{\partial}{\partial w_j}z\\
+&=(y-\Phi(z))x_j
+\end{split}
+$$
+
+重みごとに更新を行い、対数尤度を最大化させる重みを見つけ出すことが目的のため、
+
+$$
+w_j\coloneqq w_j+\eta\sum_{i=1}^n(y^{(i)}-\Phi(z^{(i)}))x_j^{(i)}
+$$
+
+全ての重みを同時に更新するため、
+
+$$
+\boldsymbol{w}\coloneqq\boldsymbol{w}+\Delta\boldsymbol{w}
+$$
+
+重みの更新量 $\Delta w$は次のように定義する。
+
+$$
+\Delta w=\eta\nabla l(\boldsymbol{w})
+$$
+
+対数尤度の最大化は上で定義したコスト関数の最小化に等しいため、
+
+$$
+\Delta w_j\coloneqq-\eta\dfrac{\partial J}{\partial w_j}=\eta\sum_{i=1}^n(y^{(i)}-\Phi(z^{(i)}))x_j^{(i)}
+$$
+よって、 $\boldsymbol{w}\coloneqq\boldsymbol{w}+\Delta\boldsymbol{w}$ 、 $\boldsymbol{w}=\eta\nabla J(\boldsymbol{w})$
+となりADALINEと等しい。
