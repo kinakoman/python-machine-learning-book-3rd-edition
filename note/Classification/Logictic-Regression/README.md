@@ -157,5 +157,18 @@ $$
 $$
 \Delta w_j\coloneqq-\eta\dfrac{\partial J}{\partial w_j}=\eta\sum_{i=1}^n(y^{(i)}-\Phi(z^{(i)}))x_j^{(i)}
 $$
+
 よって、 $\boldsymbol{w}\coloneqq\boldsymbol{w}+\Delta\boldsymbol{w}$ 、 $\boldsymbol{w}=\eta\nabla J(\boldsymbol{w})$
 となりADALINEと等しい。
+
+# 正則化による過学習への対処
+
+**過学習(overfitting)**
+は機械学習によく見られる問題であり、訓練データでは上手く機能するが、テストデータでは上手く汎化しないという問題である。
+過学習が発生しているモデルは**high variance**と表現される。
+原因としてはパラメータの数が多すぎることが挙げられる。
+
+同様に
+**学習不足(underfitting)**
+に陥る場合もある。これは、訓練データのパターンを上手く捕捉するにはモデルの複雑さが十分ではなく、未知のデータに対する性能が低いことを意味する。
+
